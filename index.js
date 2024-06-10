@@ -3,9 +3,10 @@ const fs = require('fs');
 const createKickBot = require('./kickBot.js');
 
 const token = require('./models/tokennss.js');
-const { MessageAttachment } = require('discord.js');
-const { MessageEmbed, permissionOverwrites, ChannelType, Permissions , MessageButton , MessageActionRow } = require("discord.js");
-const { Client, Intents } = require('discord.js');
+
+
+const {Client, Intents, MessageAttachment, MessageEmbed, permissionOverwrites, ChannelType, Permissions , MessageButton , MessageActionRow, Modal, TextInputComponent} = require("discord.js");
+
 const client = new Discord.Client({
   intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS" , "GUILD_PRESENCES" , "GUILD_BANS" , "GUILD_INVITES" , "GUILD_MESSAGE_REACTIONS" , "GUILD_MESSAGE_TYPING" , "DIRECT_MESSAGES" , "DIRECT_MESSAGE_REACTIONS" , "DIRECT_MESSAGE_TYPING"]
 });
@@ -732,36 +733,35 @@ client.on('interactionCreate', async interaction => {
   
   
   
-  
-  client.on('interactionCreate', async (interaction) => {
+
+client.setMaxListeners(20);
+
+client.on('interactionCreate', async (interaction) => {
     if (!interaction.isButton()) return;
-    
+
     if (interaction.customId === 'kilal') {
-      const modalal = new Modal()
-        .setCustomId('myModalal')
-        .setTitle('My Modal');
-  
-      const tokennnnl = new TextInputComponent()
-        .setCustomId('tokenlal')
-        .setLabel(`account token`)
-        .setStyle('SHORT');
+        const modalal = new Modal()
+            .setCustomId('myModalal')
+            .setTitle('My Modal');
+
+        const tokennnnl = new TextInputComponent()
+            .setCustomId('tokenlal')
+            .setLabel('account token')
+            .setStyle('SHORT');
+
         const tokennnnl2 = new TextInputComponent()
-        .setCustomId('tokenlal2')
-        .setLabel(`Giveaway bot id`)
-        .setStyle('SHORT');
-  
-  
-  
-  
-      const firstActionRowwwwl = new MessageActionRow().addComponents(tokennnnl);
-      const firstActionRowwwwl1 = new MessageActionRow().addComponents(tokennnnl2);
-    
-  
-      modalal.addComponents(firstActionRowwwwl , firstActionRowwwwl1);
-  
-      await interaction.showModal(modalal);
+            .setCustomId('tokenlal2')
+            .setLabel('Giveaway bot id')
+            .setStyle('SHORT');
+
+        const firstActionRowwwwl = new MessageActionRow().addComponents(tokennnnl);
+        const firstActionRowwwwl1 = new MessageActionRow().addComponents(tokennnnl2);
+
+        modalal.addComponents(firstActionRowwwwl, firstActionRowwwwl1);
+
+        await interaction.showModal(modalal);
     }
-  });
+});
   
   ////but
   
