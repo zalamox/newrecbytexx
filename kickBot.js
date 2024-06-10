@@ -36,7 +36,7 @@ const client = new Discord.Client({
   intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS" , "GUILD_PRESENCES" , "GUILD_BANS" , "GUILD_INVITES" , "GUILD_MESSAGE_REACTIONS" , "GUILD_MESSAGE_TYPING" , "DIRECT_MESSAGES" , "DIRECT_MESSAGE_REACTIONS" , "DIRECT_MESSAGE_TYPING"]
 });
 
-ss
+
 const mongoose = require("mongoose");
 
 
